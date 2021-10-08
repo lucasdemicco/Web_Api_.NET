@@ -18,7 +18,8 @@ namespace WebApiAuth.Controllers
         [HttpGet]
         public IActionResult Read([FromServices]ITarefaRepository repository)
         {
-            var tarefas = repository.Read();
+            var Id = new Guid(User.Identity.Name);
+            var tarefas = repository.Read(Id);
             return Ok(tarefas);
                
         }
